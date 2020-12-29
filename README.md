@@ -3,12 +3,11 @@
 # Purpose
 To create a Fullstack React Application alongside implementation of an Ubuntu NGINX server hosting MongoDB. 
 
-# Server Side
 ## NGINX and Mongodb Server on a home server
 1. NGINX
 2. Latest Ubuntu(Server or Desktop)
 
-## App Server Side 
+## Server Side 
 1. Express
 3. MongoDB
 
