@@ -1,5 +1,3 @@
-# Ops-Manager
-
 # Purpose
 To create a Fullstack React Application alongside implementation of an Ubuntu NGINX server hosting MongoDB. 
 
