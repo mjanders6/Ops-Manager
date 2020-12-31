@@ -2,22 +2,40 @@ module.exports = (Schema, model) => {
     const Categories = new Schema({
         // 
         Hygene: {
-            type: [ String ]
+            type: [ String ],
+            default: []
         },
         Tech: {
-            type: [ String ]
+            type: [ String ],
+            default: []
         },
         Wardrobe: {
-            type: [ String ]
+            type: [ String ],
+            default: []
         },
         Equipment: {
-            type: [ String ]
+            type: [ String ],
+            default: []
         },
         CleaningSupply: {
-            type: [ String ]
+            type: [ String ],
+            default: []
         },
         Food: {
-            type: [ String ]
+            type: [ String ],
+            default: []
+        },
+        SubCategory: {
+            type: [ String ],
+            default: []
+        },
+        LocationCategory: {
+            type: [ String ],
+            default: []
+        },
+        Quality: {
+            type: [ String ],
+            default: []
         }
     })
 

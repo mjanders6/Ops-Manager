@@ -9,10 +9,12 @@ module.exports = (Schema, model) => {
         },
         status: {
             type: Number,
-            default: 0
+            default: 0,
+            required: true
         },
         email: {
-            type: String
+            type: String,
+            required: true
         },
         aboutMe: {
             type: String
