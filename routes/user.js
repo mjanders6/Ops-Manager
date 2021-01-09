@@ -45,8 +45,9 @@ module.exports = (app) => {
       res.statusCode = 200;
       res.setHeader('Content-Type', 'application/json');
       res.json({
-        success: true,
-        status: 'You are successfully logged in!'
+        // success: true,
+        // status: 'You are successfully logged in!',
+        data: person
       });
     })
   });

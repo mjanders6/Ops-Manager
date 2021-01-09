@@ -32,15 +32,17 @@ class Login extends Component {
         let email = this.state.email
         let username = this.state.username
         let password = this.state.password
-        
-        User.userLogin({username, password})
+
+        User.userLogin({ username, password })
             .then(({ data }) => {
-                localStorage.setItem('user', JSON.stringify(data))
-                console.log(data)
+                console.log(data.data.status)
+                localStorage.setItem('userId', JSON.stringify(data.data._id))
+                localStorage.setItem('status', JSON.stringify(data.data.status))
                 document.getElementById('loginForm').reset()
                 this.setState(prevState => ({
                     modal: !prevState.modal
                 }));
+                window.location.reload();
             })
             .catch(e => console.error(e))
     }
@@ -60,22 +62,24 @@ class Login extends Component {
                                 <hr className="my-2" />
                             </Col>
                         </Row>
-                        <Row>
-                            <Col>
-                                {/* <Button id='login' color="primary" onClick={this.toggle}>Login</Button> */}
-                                <LoginForm
-                                    handleInputChange={this.handleInputChange}
-                                    handleFormSubmit={this.handleFormSubmit}
-                                    email={this.email}
-                                    username={this.username}
-                                    password={this.password}
-                                    toggle={this.toggle}
-                                    modal={this.state.modal}
-                                />
-                            </Col>
-                        </Row>
                     </Container>
                 </Jumbotron>
+                <Container>
+                    <Row>
+                        <Col>
+                            {/* <Button id='login' color="primary" onClick={this.toggle}>Login</Button> */}
+                            <LoginForm
+                                handleInputChange={this.handleInputChange}
+                                handleFormSubmit={this.handleFormSubmit}
+                                email={this.email}
+                                username={this.username}
+                                password={this.password}
+                                toggle={this.toggle}
+                                modal={this.state.modal}
+                            />
+                        </Col>
+                    </Row>
+                </Container>
             </>
         )
     }

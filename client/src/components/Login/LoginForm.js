@@ -1,5 +1,6 @@
 import React from 'react';
 import { Form, FormGroup, Label, Input, Row, Col, Button, Modal, ModalBody, ModalHeader } from 'reactstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const LoginForm = ({ handleInputChange, handleFormSubmit, email, toggle, modal, username, password }) => {
   return (
