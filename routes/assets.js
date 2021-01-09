@@ -3,11 +3,6 @@ const { Assets } = require('../models')
 
 module.exports = app => {
     // find in database
-    // app.get('/assets', (req, res) => {
-    //     Assets.find({})
-    //     .then(assets => res.json(assets))
-    //     .catch(e => console.log(e))
-    // })
     app.get('/assets', (req, res) => {
         Assets.find({})
             .then(assets => res.json(assets))
@@ -21,7 +16,7 @@ module.exports = app => {
     //         })
     // })
     app.get('/assets/:id', (req, res) => {
-        Assets.find({ _id: req.params.id })
+        Assets.findById({ _id: req.params.id })
         .then(assets => res.json(assets))
         .catch(e => console.log(e))
     })

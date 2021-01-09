@@ -1,18 +1,89 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { BrowserRouter as Router, Route, Link, Redirect } from 'react-router-dom'
-import Home from './pages/Home'
+import './App.css'
+import ReadOnly from './ReadOnly/pages/Home'
+import User from './User/pages/Home'
+import Admin from './Admin/pages/Home'
+import Login from './pages/Login/Login'
 
-const App = _ =>
-  <Router>
-    <div>
-      <nav>
-        <Link to='/'>Home</Link>
-        <Link to='/AddPO'>Add PO</Link>
-      </nav>
-      <Route exact path='/' component={_ => <Home />} />
-      {/* <Route exact path='/AddPO' component={_ => <AddPO />} /> */}
-      <Redirect to="/" />
-    </div>
-  </Router>
+class App extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      isLoggedIn: null
+    }
+    this.toggleLogin = this.toggleLogin.bind(this)
+  }
 
-export default App
+  componentWillMount() {
+    if (localStorage.getItem('userId') === null) {
+      this.setState({
+        isLoggedIn: false
+      })
+    } else {
+      this.setState({
+        isLoggedIn: true
+      })
+    }
+  }
+
+  toggleLogin() {
+    this.setState({
+      isLoggedIn: !this.state.isLoggedIn
+    })
+  }
+
+  componentDidMount() {
+    console.log(this.state)
+  }
+
+  loggedin = () => {
+    if (localStorage.getItem('userId')) {
+      switch (localStorage.getItem('status')) {
+        case '0':
+          return (
+            <div>
+              <ReadOnly />
+            </div>
+          )
+          break;
+        case '1':
+          return (
+            <div>
+              <User />
+            </div>
+          )
+          break;
+        case '2':
+          return (
+            <div>
+              <Admin />
+            </div>
+          )
+          break;
+        default:
+          console.log("log in")
+      }
+    } else {
+      return (
+        <div>
+          <Login />
+        </div>
+      )
+    }
+  }
+
+  render() {
+
+    return (
+
+      <div>
+        {this.loggedin()}
+      </div>
+
+    );
+
+  };
+};
+
+export default App;
