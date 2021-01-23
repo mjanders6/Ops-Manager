@@ -38,8 +38,15 @@ class App extends Component {
   }
 
   loggedin = () => {
-    if (localStorage.getItem('userId')) {
-      switch (localStorage.getItem('status')) {
+    if (sessionStorage.getItem('userId')) {
+      switch (sessionStorage.getItem('status')) {
+        case '':
+          return (
+            <div>
+              <Admin />
+            </div>
+          )
+          break;
         case '0':
           return (
             <div>

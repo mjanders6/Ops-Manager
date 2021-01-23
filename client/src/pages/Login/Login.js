@@ -35,17 +35,18 @@ class Login extends Component {
 
         User.userLogin({ username, password })
             .then(({ data }) => {
-                console.log(data.data.status)
-                localStorage.setItem('userId', JSON.stringify(data.data._id))
-                localStorage.setItem('status', JSON.stringify(data.data.status))
+                sessionStorage.setItem('userId', JSON.stringify(data.data._id))
+                sessionStorage.setItem('status', JSON.stringify(data.data.status))
+                sessionStorage.setItem('user', JSON.stringify(data.data))
                 document.getElementById('loginForm').reset()
                 this.setState(prevState => ({
                     modal: !prevState.modal
                 }));
+                console.log(data)
                 window.location.reload();
             })
             .catch(e => console.error(e))
-    }
+        }
 
     handleInputChange = event => {
         this.setState({ [event.target.id]: event.target.value })
