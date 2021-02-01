@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import AssetTable from '../../components/Assets/AssetView'
 import Assets from '../../utils/Assets'
-import { Container, Row, Col, Jumbotron } from 'react-bootstrap'
-
+import { Container, Row, Col, Jumbotron } from 'reactstrap'
 
 class AssetPage extends Component {
   constructor(props) {
