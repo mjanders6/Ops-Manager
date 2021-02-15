@@ -7,14 +7,17 @@ class AssetPage extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      assetData: []
+      assetData: [],
+      toggleInput: false,
+      toggleid: null
     }
     this.toggle = this.toggle.bind(this)
   }
 
-  toggle() {
+  toggle = event => {
     this.setState({
-      collapse: !this.state.collapse
+      toggleInput: !this.state.toggleInput,
+      toggleid: event.target.id
     });
   }
 
@@ -53,16 +56,11 @@ class AssetPage extends Component {
               {/* <Button id='login' color="primary" onClick={this.toggle}>Login</Button> */}
               <AssetTable
                 assetData={this.state.assetData}
+                toggleInput={this.state.toggleInput}
+                toggleid={this.state.toggleid}
+                handleSubmit={this.handleSubmit}
+                toggle={this.toggle}
               />
-              {/* <AssetTable
-                      handleInputChange={this.handleInputChange}
-                      handleFormSubmit={this.handleFormSubmit}
-                      email={this.email}
-                      username={this.username}
-                      password={this.password}
-                      toggle={this.toggle}
-                      modal={this.state.modal}
-                  /> */}
             </Col>
           </Row>
         </Container>

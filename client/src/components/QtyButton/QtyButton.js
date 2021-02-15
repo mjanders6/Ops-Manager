@@ -1,4 +1,4 @@
-import React, { useReducer, useState } from 'react';
+import React from 'react';
 import { Input } from 'reactstrap'
 
 const user = {
@@ -6,7 +6,7 @@ const user = {
 }
 
 const auth = _ => {
-    if (user.status == '2') {
+    if (sessionStorage.getItem('status') == '2') {
         return (
             <Input type="select" name="select">
                 <option value=""></option>

@@ -1,6 +1,9 @@
 import React from 'react';
 import { Jumbotron, Container } from 'react-bootstrap';
 import { BrowserRouter as Router, Route, Link, Redirect } from 'react-router-dom'
+
+import AssetPage from '../../pages/Assets/Assets';
+
 import './styles.css'
 
 const Home = _ =>
@@ -9,7 +12,7 @@ const Home = _ =>
         <div>
             <nav>
                 <Link to='/'>Home</Link>
-                <Link to='/'>Assets</Link>
+                <Link to='/Assets'>Assets</Link>
                 <Link to='/'>Projects</Link>
                 <Link to='/'>Team</Link>
                 <Link to='/'>Scheduling</Link>
@@ -18,16 +21,9 @@ const Home = _ =>
                 <Link to='/'>Unscheduled Maintenance</Link>
             </nav>
             {/* <Route exact path='/' component={_ => <Home />} /> */}
-            {/* <Route exact path='/AddPO' component={_ => <AddPO />} /> */}
+            <Route exact path='/Assets' component={_ => <AssetPage />} />
             <Redirect to="/" />
         </div>
     </Router>
-
-<Jumbotron fluid>
-    <Container>
-        <h1>User Home</h1>
-        <p>This is to setup file directories to initialize the project.</p>
-    </Container>
-</Jumbotron>
 </>
 export default Home;

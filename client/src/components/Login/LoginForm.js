@@ -15,7 +15,7 @@ const LoginForm = ({ handleInputChange, handleFormSubmit, email, toggle, modal, 
             </Row>
             <Row>
               <Label htmlFor="password">Password:</Label>
-              <Input id="password" type="text" name="search" value={password} onChange={handleInputChange} />
+              <Input id="password" type="password" name="search" value={password} onChange={handleInputChange} />
             </Row>
           </Col>
         </FormGroup>

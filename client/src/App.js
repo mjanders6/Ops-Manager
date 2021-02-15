@@ -1,9 +1,6 @@
 import React, { Component } from 'react'
-import { BrowserRouter as Router, Route, Link, Redirect } from 'react-router-dom'
 import './App.css'
-import ReadOnly from './ReadOnly/pages/Home'
-import User from './User/pages/Home'
-import Admin from './Admin/pages/Home'
+import Home from './pages/Home/Home'
 import Login from './pages/Login/Login'
 
 class App extends Component {
@@ -37,40 +34,56 @@ class App extends Component {
     console.log(this.state)
   }
 
+  // loggedin = () => {
+  //   if (sessionStorage.getItem('userId')) {
+  //     switch (sessionStorage.getItem('status')) {
+  //       case '':
+  //         return (
+  //           <div>
+  //             <Admin />
+  //           </div>
+  //         )
+  //         break;
+  //       case '0':
+  //         return (
+  //           <div>
+  //             <ReadOnly />
+  //           </div>
+  //         )
+  //         break;
+  //       case '1':
+  //         return (
+  //           <div>
+  //             <User />
+  //           </div>
+  //         )
+  //         break;
+  //       case '2':
+  //         return (
+  //           <div>
+  //             <Admin />
+  //           </div>
+  //         )
+  //         break;
+  //       default:
+  //         console.log("log in")
+  //     }
+  //   } else {
+  //     return (
+  //       <div>
+  //         <Login />
+  //       </div>
+  //     )
+  //   }
+  // }
+
   loggedin = () => {
     if (sessionStorage.getItem('userId')) {
-      switch (sessionStorage.getItem('status')) {
-        case '':
-          return (
-            <div>
-              <Admin />
-            </div>
-          )
-          break;
-        case '0':
-          return (
-            <div>
-              <ReadOnly />
-            </div>
-          )
-          break;
-        case '1':
-          return (
-            <div>
-              <User />
-            </div>
-          )
-          break;
-        case '2':
-          return (
-            <div>
-              <Admin />
-            </div>
-          )
-          break;
-        default:
-          console.log("log in")
-      }
+      return (
+        <div>
+          <Home />
+        </div>
+      )
     } else {
       return (
         <div>
@@ -79,6 +92,10 @@ class App extends Component {
       )
     }
   }
+
+  // handleSubmit = event => {
+  //   console.log(event)
+  // }
 
   render() {
 

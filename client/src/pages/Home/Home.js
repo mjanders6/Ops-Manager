@@ -1,10 +1,7 @@
 import React from 'react';
-import { Jumbotron, Container } from 'react-bootstrap';
 import { BrowserRouter as Router, Route, Link, Redirect } from 'react-router-dom'
 
-import AssetPage from '../../../pages/Assets/Assets';
-
-import './styles.css'
+import AssetPage from '../../pages/Assets/Assets';
 
 const Home = _ =>
 <>
