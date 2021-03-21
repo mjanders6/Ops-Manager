@@ -6,7 +6,7 @@ const user = {
 }
 
 const auth = _ => {
-    if (sessionStorage.getItem('status') == '2') {
+    if (sessionStorage.getItem('status') === '2') {
         return (
             <Input type="select" name="select">
                 <option value=""></option>

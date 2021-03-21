@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import AssetTable from '../../components/Assets/AssetView'
 import Assets from '../../utils/Assets'
+import Category from '../../utils/Categories'
 import { Container, Row, Col, Jumbotron } from 'reactstrap'
 
 class AssetPage extends Component {
@@ -8,6 +9,9 @@ class AssetPage extends Component {
     super(props)
     this.state = {
       assetData: [],
+      categoryData: [],
+      setCatList: [],
+      setCategory: null,
       toggleInput: false,
       toggleid: null
     }
@@ -29,11 +33,27 @@ class AssetPage extends Component {
       })
       .catch(e => console.error(e))
 
+    Category.getCategories()
+      .then(({ data }) => {
+        this.setState({ categoryData: data })
+        console.log(data)
+      })
+      .catch(e => console.error(e))
   }
 
   handleInputChange = event => {
     this.setState({ [event.target.id]: event.target.value })
     console.log(event.target.id)
+  }
+
+  handleCategory = event => {
+    event.preventDefault()
+    Category.getCategories()
+      .then(({ data }) => {
+        this.setState({ categoryData: data })
+        console.log(data)
+      })
+      .catch(e => console.error(e))
   }
 
   render() {
@@ -56,6 +76,8 @@ class AssetPage extends Component {
               {/* <Button id='login' color="primary" onClick={this.toggle}>Login</Button> */}
               <AssetTable
                 assetData={this.state.assetData}
+                handleCategory={this.handleCategory}
+                categoryData={this.state.categoryData}
                 toggleInput={this.state.toggleInput}
                 toggleid={this.state.toggleid}
                 handleSubmit={this.handleSubmit}
