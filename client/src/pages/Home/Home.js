@@ -1,26 +1,29 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Link, Redirect } from 'react-router-dom'
+import { Jumbotron } from 'reactstrap';
 
-import AssetPage from '../../pages/Assets/Assets';
+import AssetPage from '../Assets/Assets';
+import Landing from '../Landing/Landing'
 
 const Home = _ =>
-<>
-    <Router>
-        <div>
-            <nav>
-                <Link to='/'>Home</Link>
-                <Link to='/Assets'>Assets</Link>
-                <Link to='/'>Projects</Link>
-                <Link to='/'>Team</Link>
-                <Link to='/'>Scheduling</Link>
-                <Link to='/'>Tasks</Link>
-                <Link to='/'>Training</Link>
-                <Link to='/'>Unscheduled Maintenance</Link>
-            </nav>
-            {/* <Route exact path='/' component={_ => <Home />} /> */}
-            <Route exact path='/Assets' component={_ => <AssetPage />} />
-            <Redirect to="/" />
-        </div>
-    </Router>
-</>
+    <>
+        <Router>
+            <div>
+                <nav>
+                    <Link to='/'>Home</Link>
+                    <Link to='/Assets'>Assets</Link>
+                    <Link to='/Projects'>Projects</Link>
+                    <Link to='/Team'>Team</Link>
+                    <Link to='/Scheduling'>Scheduling</Link>
+                    <Link to='/Tasks'>Tasks</Link>
+                    <Link to='/Training'>Training</Link>
+                    <Link to='/UnscheduledMaintenance'>Unscheduled Maintenance</Link>
+                </nav>
+                <Route exact path='/' component={_ => <Landing />} />
+                <Route exact path='/Assets' component={_ => <AssetPage />} />
+                {/* <Route exact path='/Projects' component={_ => <AssetPage />} */}
+                <Redirect to="/" />
+            </div>
+        </Router>
+    </>
 export default Home;

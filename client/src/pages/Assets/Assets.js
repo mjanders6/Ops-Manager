@@ -70,7 +70,7 @@ class AssetPage extends Component {
             </Row>
           </Container>
         </Jumbotron>
-        <Container>
+        <div>
           <Row>
             <Col>
               {/* <Button id='login' color="primary" onClick={this.toggle}>Login</Button> */}
@@ -85,7 +85,7 @@ class AssetPage extends Component {
               />
             </Col>
           </Row>
-        </Container>
+        </div>
       </>
     )
   }
